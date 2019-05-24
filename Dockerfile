@@ -9,6 +9,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN /tmp/setup/php-extensions.sh
 RUN /tmp/setup/oci8-extension.sh
 ENV LD_LIBRARY_PATH /usr/local/instantclient
+RUN apt-get install git
 
 RUN mkdir -p /var/www/moodledata && \
     chmod 777 -R /var/www/moodledata && \
