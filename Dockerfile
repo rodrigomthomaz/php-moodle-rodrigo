@@ -15,7 +15,8 @@ RUN mkdir -p /var/www/moodledata && \
     /bin/bash -c 'chmod 777 -R /var/www/moodledata' && \
     /bin/bash -c 'chown www-data /var/www/ -R' && \
     cd /tmp && \
-    git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 && \
+    #git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 && \
+    git clone -b moodle-branch01 git@github.com:rodrigomthomaz/moodle-ifsp.git && \
     mv /tmp/moodle/* /var/www/html/ && \
     #rm /var/www/html/index.html && \
     chown -R www-data:www-data /var/www/html && \
