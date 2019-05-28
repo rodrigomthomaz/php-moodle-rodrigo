@@ -23,7 +23,8 @@ RUN mkdir -p /var/www/moodledata && \
     #git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle && \
     wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip 
 
-RUN unzip moodle.zip && \
+RUN cd /tmp && \
+    unzip moodle.zip && \
     mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ && \
     #rm /var/www/html/index.html && \
     chown -R www-data. /var/www/
