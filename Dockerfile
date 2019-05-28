@@ -9,7 +9,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN /tmp/setup/php-extensions.sh
 RUN /tmp/setup/oci8-extension.sh
 ENV LD_LIBRARY_PATH /usr/local/instantclient
-RUN apt-get -y update && apt-get -y install git nano
+RUN apt-get -y update && apt-get -y install nano vim wget unzip
 
 VOLUME ["/var/www/moodledata"]
 
@@ -20,11 +20,14 @@ RUN mkdir -p /var/www/moodledata && \
     /bin/bash -c 'chown www-data /var/www/ -R' && \
     cd /tmp && \
     #git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 && \
-    git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle && \
-    mv /tmp/moodle/* /var/www/html/ && \
+    #git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle && \
+    wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip 
+
+RUN unzip moodle.zip && \
+    mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ && \
     #rm /var/www/html/index.html && \
-    chown -R www-data. /var/www/html && \
-    chown www-data. /var/www/ -R
+    chown -R www-data. /var/www/
+    #chown www-data. /var/www/ -R
    # chmod -R 777 /var/www
 
 EXPOSE 80
