@@ -26,10 +26,11 @@ RUN mkdir -p /var/www/moodledata && \
 RUN cd /tmp && \
     unzip moodle.zip && \
     mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ && \
-    #rm /var/www/html/index.html && \
+    rm -rf /tmp/moodle* && \
     chown -R www-data. /var/www/
+    #rm /var/www/html/index.html && \
     #chown www-data. /var/www/ -R
-   # chmod -R 777 /var/www
+    # chmod -R 777 /var/www
 
 EXPOSE 80
 EXPOSE 443
