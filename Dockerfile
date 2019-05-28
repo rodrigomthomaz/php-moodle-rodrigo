@@ -9,7 +9,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN /tmp/setup/php-extensions.sh
 RUN /tmp/setup/oci8-extension.sh
 ENV LD_LIBRARY_PATH /usr/local/instantclient
-RUN apt-get -y update && apt-get -y install nano vim wget unzip
+RUN apt-get -y update && apt-get -y install nano vim wget unzip sudo
 
 VOLUME ["/var/www/moodledata"]
 
@@ -35,3 +35,10 @@ EXPOSE 80
 EXPOSE 443
 
 #RUN apt-get remove git --purge
+
+ENTRYPOINT /bin/echo "AGUARDANDO DB" && \
+           /bin/sleep 120 && \
+           /bin/echo "CONFIGURANDO MOODLE" && \
+           /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install.php --lang=pt_br --dbtype=$MOODLE_DOCKER_DBTYPE --dbhost=$MOODLE_DOCKER_DBHOST --dbuser=$MOODLE_DOCKER_DBUSER --dbpass=$MOODLE_DOCKER_DBPASS --dbname=$MOODLE_DOCKER_DBNAME --wwwroot=$MOODLE_DOCKER_WWWROOT --fullname=$MOODLE_DOCKER_FULLNAME --shortname=$MOODLE_DOCKER_SHORTNAME --adminpass=$MOODLE_DOCKER_ADMINPASS --non-interactive --agree-license && \
+           /bin/echo "ATUALIZANDO MOODLE" && \
+           /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install_database.php --agree-license
