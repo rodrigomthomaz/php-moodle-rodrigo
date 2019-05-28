@@ -38,8 +38,7 @@ EXPOSE 443
 #RUN apt-get remove git --purge
 
 CMD /bin/echo "AGUARDANDO DB" && \
-           /bin/sleep 120 && \
-           /bin/echo "CONFIGURANDO MOODLE" && \
-           /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install.php --lang="pt_br" --dbtype="$MOODLE_DOCKER_DBTYPE" --dbhost="$MOODLE_DOCKER_DBHOST" --dbuser="$MOODLE_DOCKER_DBUSER" --dbpass="$MOODLE_DOCKER_DBPASS" --dbname="$MOODLE_DOCKER_DBNAME" --wwwroot="$MOODLE_DOCKER_WWWROOT" --fullname="$MOODLE_DOCKER_FULLNAME" --shortname="$MOODLE_DOCKER_SHORTNAME" --adminpass="$MOODLE_DOCKER_ADMINPASS" --non-interactive --agree-license && \
-           /bin/echo "ATUALIZANDO MOODLE" && \
-           /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install_database.php --agree-license
+    /bin/echo "CONFIGURANDO MOODLE" && \
+    /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install.php --lang="pt_br" --dbtype="$MOODLE_DOCKER_DBTYPE" --dbhost="$MOODLE_DOCKER_DBHOST" --dbuser="$MOODLE_DOCKER_DBUSER" --dbpass="$MOODLE_DOCKER_DBPASS" --dbname="$MOODLE_DOCKER_DBNAME" --wwwroot="$MOODLE_DOCKER_WWWROOT" --fullname="$MOODLE_DOCKER_FULLNAME" --shortname="$MOODLE_DOCKER_SHORTNAME" --adminpass="$MOODLE_DOCKER_ADMINPASS" --non-interactive --agree-license && \
+    /bin/echo "ATUALIZANDO MOODLE" && \
+    /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install_database.php --agree-license
