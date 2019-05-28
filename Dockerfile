@@ -11,14 +11,12 @@ RUN /tmp/setup/oci8-extension.sh
 ENV LD_LIBRARY_PATH /usr/local/instantclient
 RUN apt-get -y update && apt-get -y install git nano
 
-RUN USER root && \
-    mkdir -p /var/www/moodledata && \
-    chmod 777 -R /var/www/moodledata && \
-    chown www-data /var/www/ -R && \
+RUN mkdir -p /var/www/moodledata && \
+    /bin/bash -c 'chmod 777 -R /var/www/moodledata' && \
+    /bin/bash -c 'chown www-data /var/www/ -R' && \
     cd /tmp && \
     git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 && \
     mv /tmp/moodle/* /var/www/html/ && \
     #rm /var/www/html/index.html && \
     chown -R www-data:www-data /var/www/html && \
-    chmod 777 -R /var/www/moodledata && \
     chown www-data /var/www/ -R  
