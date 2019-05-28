@@ -20,4 +20,4 @@ RUN mkdir -p /var/www/moodledata && \
     #rm /var/www/html/index.html && \
     chown -R www-data:www-data /var/www/html && \
     chmod 777 -R /var/www/moodledata && \
-    chown www-data /var/www/ -R &&  
+    chown www-data /var/www/ -R  
