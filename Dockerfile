@@ -11,7 +11,7 @@ RUN /tmp/setup/oci8-extension.sh
 ENV LD_LIBRARY_PATH /usr/local/instantclient
 RUN apt-get -y update && apt-get -y install git nano
 
-VOLUME ["/var/www/moodledata","/var/www/html"]
+VOLUME ["/var/www/moodledata"]
 
 WORKDIR /var/www
 
