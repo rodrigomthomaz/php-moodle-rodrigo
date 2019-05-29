@@ -19,13 +19,14 @@ RUN mkdir -p /var/www/moodledata && \
     #/bin/bash -c 'chmod 777 -R /var/www/moodledata' && \
     /bin/bash -c 'chown www-data /var/www/ -R' && \
     cd /tmp && \
-    #git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 && \
+    git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 && \
     #git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle && \
-    wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip 
+    #wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip 
 
 RUN cd /tmp && \
-    unzip moodle.zip && \
-    mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ && \
+    #unzip moodle.zip && \
+    #mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ && \
+    mv /tmp/moodle/* /var/www/html/ && \
     rm -rf /tmp/moodle* && \
     chown -R www-data. /var/www/
     #rm /var/www/html/index.html && \
