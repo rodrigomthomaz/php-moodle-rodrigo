@@ -1,4 +1,4 @@
-FROM php:7.1-apache-stretch
+FROM php:7.0-apache-stretch
   
 ADD root/ /
 # Fix the original permissions of /tmp, the PHP default upload tmp dir.
@@ -16,8 +16,8 @@ VOLUME ["/var/www/moodledata"]
 WORKDIR /var/www
 
 RUN mkdir -p /var/www/moodledata && \
-    #/bin/bash -c 'chmod 777 -R /var/www/moodledata' && \
-    /bin/bash -c 'chown www-data /var/www/ -R' && \
+    #/bin/bash -c 'chmod 777 -R /var/www/moodledata' 
+    bin/bash -c 'chown www-data /var/www/ -R' && \
     cd /tmp && \
     git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1
     #git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle && \
@@ -25,7 +25,7 @@ RUN mkdir -p /var/www/moodledata && \
 
 RUN cd /tmp && \
     #unzip moodle.zip && \
-    #mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ && \
+    #mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ 
     mv /tmp/moodle/* /var/www/html/ && \
     rm -rf /tmp/moodle* && \
     chown -R www-data. /var/www/
