@@ -20,22 +20,22 @@ RUN mkdir -p /var/www/moodledata && \
     /bin/bash -c 'chown www-data /var/www/ -R' && \
     #chown www-data /var/www/ -R
     cd /tmp && \
-    git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 && \
-    #git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle && \
-    #wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip 
-    #cd /tmp && \
-    #unzip moodle.zip && \
-    #mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ 
-    mv /tmp/moodle/* /var/www/html/ && \
+    #git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1
+    #git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle 
+    wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip && \
+    #cd /tmp
+    unzip moodle.zip && \
+    mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ 
+    #mv /tmp/moodle/* /var/www/html/ && \
     #rm -rf /tmp/moodle*
     chown -R www-data:www-data /var/www/ && \
     #rm /var/www/html/index.html && \
     #chown www-data. /var/www/ -R
     chmod -R 777 /var/www
     
-CMD /bin/sleep 30 && \
-    /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install.php --lang="pt_br" --dbtype="$MOODLE_DOCKER_DBTYPE" --dbhost="$MOODLE_DOCKER_DBHOST" --dbuser="$MOODLE_DOCKER_DBUSER" --dbpass="$MOODLE_DOCKER_DBPASS" --dbname="$MOODLE_DOCKER_DBNAME" --wwwroot="$MOODLE_DOCKER_WWWROOT" --fullname="$MOODLE_DOCKER_FULLNAME" --shortname="$MOODLE_DOCKER_SHORTNAME" --adminpass="$MOODLE_DOCKER_ADMINPASS" --non-interactive --agree-license
-    #/usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install_database.php --agree-license
+#CMD /bin/sleep 30 && \
+#    /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install.php --lang="pt_br" --dbtype="$MOODLE_DOCKER_DBTYPE" --#dbhost="$MOODLE_DOCKER_DBHOST" --dbuser="$MOODLE_DOCKER_DBUSER" --dbpass="$MOODLE_DOCKER_DBPASS" --dbname="$MOODLE_DOCKER_DBNAME" --#wwwroot="$MOODLE_DOCKER_WWWROOT" --fullname="$MOODLE_DOCKER_FULLNAME" --shortname="$MOODLE_DOCKER_SHORTNAME" --adminpass="$MOODLE_DOCKER_ADMINPASS" #--non-interactive --agree-license
+#    #/usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install_database.php --agree-license
 EXPOSE 80
 EXPOSE 443
 
