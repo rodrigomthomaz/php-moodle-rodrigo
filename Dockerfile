@@ -8,7 +8,7 @@ RUN chmod 777 /tmp && chmod +t /tmp
 ARG DEBIAN_FRONTEND=noninteractive
 RUN /tmp/setup/php-extensions.sh
 RUN /tmp/setup/oci8-extension.sh
-ENV LD_LIBRARY_PATH /usr/local/instantclient/
+ENV LD_LIBRARY_PATH /usr/local/instantclient_12_1/
 RUN apt-get -y update && apt-get -y install nano git apt-utils sudo
 
 VOLUME ["/var/www/moodledata"]
