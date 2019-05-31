@@ -25,7 +25,7 @@ RUN mkdir -p /var/www/moodledata && \
     wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip && \
     #cd /tmp
     unzip moodle.zip && \
-    mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ 
+    mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ && \
     #mv /tmp/moodle/* /var/www/html/ && \
     #rm -rf /tmp/moodle*
     chown -R www-data:www-data /var/www/ && \
