@@ -9,7 +9,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN /tmp/setup/php-extensions.sh
 RUN /tmp/setup/oci8-extension.sh
 ENV LD_LIBRARY_PATH /usr/local/instantclient
-RUN apt-get -y update && apt-get -y install nano git
+RUN apt-get -y update && apt-get -y install nano git apt-utils
 
 VOLUME ["/var/www/moodledata"]
 
@@ -17,7 +17,7 @@ WORKDIR /var/www
 
 RUN mkdir -p /var/www/moodledata && \
     /bin/bash -c 'chmod 777 -R /var/www/moodledata' && \
-    bin/bash -c 'chown www-data /var/www/ -R' && \
+    /bin/bash -c 'chown www-data /var/www/ -R' && \
     #chown www-data /var/www/ -R
     cd /tmp && \
     git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1
