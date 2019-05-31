@@ -29,7 +29,7 @@ RUN #cd /tmp && \
     #mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ 
     mv /tmp/moodle/* /var/www/html/ && \
     #rm -rf /tmp/moodle*
-    chown -R www-data:www-data /var/www/
+    chown -R www-data:www-data /var/www/ && \
     #rm /var/www/html/index.html && \
     #chown www-data. /var/www/ -R
     chmod -R 777 /var/www
