@@ -20,11 +20,10 @@ RUN mkdir -p /var/www/moodledata && \
     /bin/bash -c 'chown www-data /var/www/ -R' && \
     #chown www-data /var/www/ -R
     cd /tmp && \
-    git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1
+    git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 && \
     #git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle && \
     #wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip 
-
-RUN #cd /tmp && \
+    #cd /tmp && \
     #unzip moodle.zip && \
     #mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ 
     mv /tmp/moodle/* /var/www/html/ && \
@@ -34,8 +33,8 @@ RUN #cd /tmp && \
     #chown www-data. /var/www/ -R
     chmod -R 777 /var/www
 
-#EXPOSE 80
-#EXPOSE 443
+EXPOSE 80
+EXPOSE 443
 
 #RUN apt-get remove git --purge
 
