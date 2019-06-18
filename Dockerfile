@@ -22,7 +22,8 @@ RUN mkdir -p /var/www/moodledata && \
     cd /tmp && \
     #git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1
     #git clone -b moodle-branch01 https://github.com/rodrigomthomaz/moodle-ifsp.git moodle 
-    wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip && \
+    #wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch01.zip -O moodle.zip && \
+    wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch-3.7+.zip -O moodle.zip && \    
     #cd /tmp
     unzip moodle.zip && \
     mv /tmp/moodle-ifsp-moodle-branch01/* /var/www/html/ && \
