@@ -1,6 +1,6 @@
 FROM php:7.1-apache-stretch
 #FROM debian-ifsp-ded
-
+#
 ADD root/ /
 # Fix the original permissions of /tmp, the PHP default upload tmp dir.
 RUN chmod 777 /tmp && chmod +t /tmp
