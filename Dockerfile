@@ -31,10 +31,11 @@ RUN mkdir -p /var/www/moodledata && \
     mv /tmp/moodle-ifsp-moodle-branch-3.7-/* /var/www/html/ && \
     #mv /tmp/moodle/* /var/www/html/ && \
     #rm -rf /tmp/moodle*
-    chown -R www-data:www-data /var/www/ && \
+    chown -R www-data:www-data /var/www/moodledata && \
     #rm /var/www/html/index.html && \
     #chown www-data. /var/www/ -R
-    chmod -R 777 /var/www
+    chmod -R 777 /var/www/moodledata && \
+    /bin/bash -c 'chown www-data /var/www/moodledata -R'
     
 #CMD /bin/sleep 30 && \
 #    /usr/bin/sudo -u www-data /usr/local/bin/php /var/www/html/admin/cli/install.php --lang="pt_br" --dbtype="$MOODLE_DOCKER_DBTYPE" --#dbhost="$MOODLE_DOCKER_DBHOST" --dbuser="$MOODLE_DOCKER_DBUSER" --dbpass="$MOODLE_DOCKER_DBPASS" --dbname="$MOODLE_DOCKER_DBNAME" --#wwwroot="$MOODLE_DOCKER_WWWROOT" --fullname="$MOODLE_DOCKER_FULLNAME" --shortname="$MOODLE_DOCKER_SHORTNAME" --adminpass="$MOODLE_DOCKER_ADMINPASS" #--non-interactive --agree-license
