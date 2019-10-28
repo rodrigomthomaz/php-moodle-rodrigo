@@ -35,6 +35,7 @@ RUN mkdir -p /var/www/moodledata && \
     #rm /var/www/html/index.html && \
     #chown www-data. /var/www/ -R
     chmod -R 777 /var/www/moodledata && \
+    
     /bin/bash -c 'chown www-data /var/www/moodledata -R'
     
 #CMD /bin/sleep 30 && \
