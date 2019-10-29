@@ -22,7 +22,7 @@ RUN mkdir -p /var/www/moodledata && \
     cd /tmp && \
     wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch-3.7+.zip -O moodle.zip && \    
     unzip moodle.zip && \
-    mv /tmp/moodle-ifsp-moodle-branch-3.7-/* /var/www/html/ && \
+    cp -pr /tmp/moodle-ifsp-moodle-branch-3.7-/* /var/www/html/ && \
     chown -R www-data:www-data /var/www/moodledata && \
     chmod -R 777 /var/www/moodledata     
 
