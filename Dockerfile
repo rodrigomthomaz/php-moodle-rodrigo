@@ -20,7 +20,7 @@ RUN mkdir -p /var/www/moodledata && \
     /bin/bash -c 'chmod 777 -R /var/www/moodledata' && \
     /bin/bash -c 'chown www-data /var/www/ -R' && \
     cd /tmp && \
-    wget https://github.com/rodrigomthomaz/moodle-ifsp/archive/moodle-branch-3.7+.zip -O moodle.zip && \    
+    wget https://github.com/CTIGuarulhos/moodle-ifsp/archive/moodle-branch-3.7+.zip -O moodle.zip && \    
     unzip moodle.zip && \
     cp -pr /tmp/moodle-ifsp-moodle-branch-3.7-/* /var/www/html/ && \
     chown -R www-data:www-data /var/www/moodledata && \
