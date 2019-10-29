@@ -16,8 +16,7 @@ VOLUME ["/var/www/moodledata"]
 
 WORKDIR /var/www
 
-RUN USER root && \
-    mkdir -p /var/www/moodledata && \
+RUN mkdir -p /var/www/moodledata && \
     /bin/bash -c 'chmod 777 -R /var/www/moodledata' && \
     /bin/bash -c 'chown www-data /var/www/ -R' && \
     cd /tmp && \
