@@ -40,6 +40,7 @@ COPY wait-for-it.sh start.sh locale.md /
 
 RUN chmod u+x /wait-for-it.sh && \
     chmod u+x /start.sh && \
+    chmod 777 -R /var/lib/postgres/data && \
     cat /locale.md | xargs -i /usr/glibc-compat/bin/localedef -i {} -f UTF-8 {}.UTF-8
 
 VOLUME ["/moodledata","/etc/letsencrypt/"]
