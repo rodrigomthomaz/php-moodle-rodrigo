@@ -12,13 +12,9 @@ RUN /tmp/setup/oci8-extension.sh
 ENV LD_LIBRARY_PATH /usr/local/instantclient_12_1/
 RUN apt-get -y update && apt-get -y install nano git apt-utils sudo wget unzip
 
-VOLUME ["/var/www/moodledata"]
-
-WORKDIR /var/www
-
 RUN mkdir -p /var/www/moodledata && \
-    /bin/bash -c 'chmod 777 -R /var/www/moodledata' && \
-    /bin/bash -c 'chown www-data /var/www/ -R' && \
+    chmod 777 -R /var/www/ && \
+    chown www-data /var/www/ -R && \
     cd /tmp && \
     wget https://github.com/CTIGuarulhos/moodle-ifsp/archive/moodle-branch-3.7+.zip -O moodle.zip && \    
     unzip moodle.zip && \
