@@ -42,7 +42,7 @@ RUN chmod u+x /wait-for-it.sh && \
     chmod u+x /start.sh && \
     cat /locale.md | xargs -i /usr/glibc-compat/bin/localedef -i {} -f UTF-8 {}.UTF-8
 
-VOLUME ["/moodledata","/etc/letsencrypt/"]
+VOLUME ["/moodledata","/etc/letsencrypt/","/src"]
 
 COPY config/crontab /etc/crontabs/root
 COPY config/nginx.conf /etc/nginx/nginx.conf
