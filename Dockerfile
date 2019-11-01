@@ -1,5 +1,5 @@
 # Forked from TrafeX/docker-php-nginx (https://github.com/TrafeX/docker-php-nginx/)
-
+#TESTE
 FROM alpine:3.10
 LABEL Maintainer="CTI Guarulhos <ctiguarulhos@ifsp.edu.br>" \
       Description="Docker Image for moodle."
