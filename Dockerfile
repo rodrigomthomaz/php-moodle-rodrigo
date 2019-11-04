@@ -57,4 +57,4 @@ WORKDIR /src
 EXPOSE 80
 EXPOSE 443
 
-ENTRYPOINT /wait-for-it.sh $DB_HOST:$DB_PORT --strict --timeout=120 -- /start.sh
+#ENTRYPOINT /wait-for-it.sh $DB_HOST:$DB_PORT --strict --timeout=120 -- /start.sh
